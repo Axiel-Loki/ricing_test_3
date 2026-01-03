@@ -1,0 +1,282 @@
+// ██╗    ██╗ █████╗ ██╗   ██╗██████╗  █████╗ ██████╗ 
+// ██║    ██║██╔══██╗╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
+// ██║ █╗ ██║███████║ ╚████╔╝ ██████╔╝███████║██████╔╝
+// ██║███╗██║██╔══██║  ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
+// ╚███╔███╔╝██║  ██║   ██║   ██████╔╝██║  ██║██║  ██║
+//  ╚══╝╚══╝ ╚═╝  ╚═╝   ╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
+
+{
+    "layer": "top",
+    "position": "top",
+    "height": "25",
+    //"spacing": "4",
+    "reload_style_on_change": true,
+
+    // Modules Position //
+
+    "modules-left": [
+        "hyprland/workspaces",
+        "mpris"
+    ],
+
+    "modules-center": [
+        "clock", 
+        "custom/notification"
+    ],
+
+    "modules-right": [
+        "tray",
+        "custom/sep1",
+        "network",
+        "custom/sep2",
+        "backlight",
+        "custom/sep3",
+        "pulseaudio",
+        "custom/sep4",
+        "battery",
+        "custom/sep5",
+        "group/power-expander"
+    ],
+
+    // Modules configuration //
+
+    "hyprland/workspaces": {
+        "format":"{icon}",
+        "on-click": "activate",
+        "format-icons": {
+            "1": "1",
+            "2": "2",
+            "3": "3",
+            "4": "4",
+            "5": "5",
+            "default": "1"
+        },
+
+        "icon-size": 15,
+        "sort-by-number": true,
+        "persistent-workspaces": {
+            "1": [],
+            "2": [],
+            "3": [],
+            "4": [],
+            "5": []
+        }
+    },
+
+    "mpris": {
+        "format": " {artist}: {title}",
+        "format-paused": "󰏦 {artist}: {title}",
+        "format-stopped": " 404 - Not Found",
+        "tooltip-format": "󰽰 {title}\n {artist}\n󰎆 {album}",
+        "tooltip": true,
+        "max-length": 35,
+        "interval": 2,
+        "on-click": "playerctl play-pause",
+        "on-scroll-up": "playerctl next",
+        "on-scroll-down": "playerctl previous"
+    },
+
+    "clock": {
+        "timezone": "America/Sao_Paulo",
+        "format": "{:%d.%m | %H:%M}",
+        "format-alt": "{:%A, %d - %B at %Y}"
+    },
+
+    "custom/notification": {
+        "tooltip": false,
+        "format": "{icon} ",
+        "format-icons": [
+          "󰂜", 
+          "󰅸", 
+          "󰪑"
+        ],
+        
+        "return-type": "json",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        "escape": true,
+        "on-click": "swaync-client -t -sw",
+        "on-click-right": "swaync-client -d -sw"
+    },
+
+    "tray": {
+        "icon-size": 14,
+        "spacing": 13
+    },
+
+    "custom/sep1": {
+        "format": "|",
+        "interval": "once",
+        "tooltip": false
+    },
+
+    "network": {
+        "interface": "wlan*",
+        "format-icons": [
+          "󰤯",
+          "󰤟",
+          "󰤢",
+          "󰤥",
+          "󰤨"
+        ],
+
+        "format": "{icon} {essid}",
+        "format-wifi": "{icon} {essid}",
+        "format-ethernet": "󰀂",
+        "format-disconnected": "󰤮",
+        "tooltip-format-wifi": "{essid} ({frequency} GHz)\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+        "tooltip-format-ethernet": "⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+        "tooltip-format-disconnected": "Disconnected",
+        "interval": 3,
+        "spacing": 1,
+        "on-click": "kitty --class float -e nmtui"
+    },
+
+    "custom/sep2": {
+        "format": "|",
+        "interval": "once",
+        "tooltip": false
+    },
+    
+    "backlight": {
+        "device": "intel_backlight",
+        "format": "{icon} {percent}%",
+        "tooltip-format": "󰃚 {percent}%",
+        "format-icons": [
+          "󰃝",
+          "󰃞",
+          "󰃟",
+          "󰃠"
+        ],
+
+        "scroll-step": 10
+    },
+
+    "custom/sep3": {
+        "format": "|",
+        "interval": "once",
+        "tooltip": false
+    },
+
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "headset": "󰋎",
+            "default": [
+              "",
+              "",
+              ""
+            ]
+
+        },
+
+        "on-click": "pavucontrol",
+        "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+        "tooltip-format": " {volume}%",
+        "tooltip": true,
+        "scroll-step": 5
+
+    },
+
+    "custom/sep4": {
+        "format": "|",
+        "interval": "once",
+        "tooltip": false
+    },
+
+    "battery": {
+        "format": "{icon} {capacity}%",
+        "format-discharging": "{icon} {capacity}%",
+        "format-charging": "{icon}",
+        "format-icons": {
+            "charging": [
+              "󰂆",
+              "󰂈",
+              "󰂉",
+              "󰂊",
+              "󰂅"
+            ],
+
+            "default": [
+              "󰁻",
+              "󰁽",
+              "󰁿",
+              "󰂁",
+              "󰁹"
+            ]
+
+        },
+
+        "format-full": "󰂊",
+        "tooltip-format-discharging": "{power:>1.0f}W↓ {capacity}%",
+        "tooltip-format-charging": "{power:>1.0f}W↑ {capacity}%",
+        "interval": 5,
+        "states": {
+            "warning": 60,
+            "critical": 20
+        }
+
+    },
+
+    "custom/sep5": {
+        "format": "|",
+        "interval": "once",
+        "tooltip": false
+    },
+
+    "group/power-expander": {
+        "orientation": "inherit", 
+        "drawer": {
+            "transition-duration": 500, 
+            "children-class": "not-power",
+            "transition-left-to-right": false
+        },
+
+        "modules": [
+            "custom/power",
+            "custom/reboot",
+            "custom/lock",
+            "custom/suspend",
+            "custom/logout"
+        ]
+
+    },
+
+    "custom/power": {
+        "format": "",
+        "tooltip": true,
+        "tooltip-format": "Desligar",
+        "on-click": "systemctl poweroff"
+    },
+
+    "custom/reboot": {
+        "format": "",
+        "tooltip": true,
+        "tooltip-format": "Reiniciar",
+        "on-click": "systemctl reboot"
+    },
+
+    "custom/lock": {
+        "format": "",
+        "tooltip": true,
+        "tooltip-format": "Bloquear tela",
+        "on-click": "hyprlock",
+        "on-click-right": "loginctl lock-session"
+    },
+
+    "custom/suspend": {
+        "format": "",
+        "tooltip": true,
+        "tooltip-format": "Suspender",
+        "on-click": "systemctl suspend"
+    },
+
+    "custom/logout": {
+        "format": "󰍃",
+        "tooltip": true,
+        "tooltip-format": "Sair",
+        "on-click": "hyprctl dispatch exit"
+    }
+}

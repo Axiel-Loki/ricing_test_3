@@ -1,0 +1,189 @@
+/* WAYBAR */
+
+* {
+    font-family: "SF Pro Text", "JetBrainsMono Nerd Font Propo", sans-serif;
+    font-size: 16px;
+}
+
+window#waybar {
+    background-color: rgba(0, 0, 0, 0.666);
+    color: #f0f0f0;
+    font-weight: 500;
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+button {
+    border: none;
+    background: transparent;
+}
+
+button:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* MODULES LEFT */
+
+#workspaces button {
+    padding: 0.3rem 0.7rem;
+    color: #666666;
+    border-radius: 1px;
+}
+
+#workspaces button:hover {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+#workspaces button.active {
+    color: #ffffff;
+    /* background-color: #1a1a1a; */
+    font-weight: 600;
+}
+
+#workspaces button.urgent {
+    background-color: #cccccc;
+    color: #000000;
+}
+
+#mpris {
+    color: #f0f0f0;
+    padding: 0.3rem 0.7rem;
+    margin-left: 4px;
+}
+
+#mpris.paused {
+    color: #666666;
+}
+
+#mpris.stopped {
+    color: #666666;
+}
+
+/* MODULES CENTER */
+
+#clock {
+    color: #ffffff;
+    font-weight: 600;
+    padding: 0.3rem 0.7rem;
+}
+
+#custom-notification {
+    color: #ffffff;
+    padding: 0.3rem 0.7rem;
+    margin-left: 4px;
+}
+
+/* MODULES RIGHT */
+
+#tray {
+    color: #ffffff;
+    padding: 0.3rem 0.7rem;
+    /* background-color: #1a1a1a; */
+}
+
+#tray > .needs-attention {
+    background-color: #666666;
+    color: #000000;
+}
+
+#network {
+    color: #ffffff;
+    padding: 0.3rem 0.7rem;
+    /* background-color: #333333; */
+}
+
+#network.disconnected {
+    color: #666666;
+}
+
+#network:hover {
+    background-color: #333333;
+}
+
+#backlight {
+    color: #ffffff;
+    padding: 0.3rem 0.7rem;
+    /* background-color: #1a1a1a; */
+}
+
+#backlight:hover {
+    background-color: #333333;
+}
+
+#pulseaudio {
+    color: #ffffff;
+    padding: 0.3rem 0.7rem;
+    /* background-color: #333333; */
+}
+
+#pulseaudio.muted {
+    color: #666666;
+}
+
+#pulseaudio:hover {
+    background-color: #333333;
+}
+
+#battery {
+    color: #ffffff;
+    padding: 0.3rem 0.7rem;
+    /* background-color: #1a1a1a; */
+}
+
+#battery.charging {
+    color: #ffffff;
+    /* background-color: #333333; */
+}
+
+#battery.warning:not(.charging) {
+    color: #000000;
+    /* background-color: #999999; */
+    font-weight: 600;
+}
+
+#battery.critical:not(.charging) {
+    color: #000000;
+    /* background-color: #cccccc; */
+    font-weight: 700;
+}
+
+#battery.full {
+    color: #ffffff;
+    /* background-color: #333333; */
+}
+
+#group-power-expander {
+    background-color: #1a1a1a;
+}
+
+/* _ Botões do power expander _ */
+
+#custom-power, #custom-reboot, #custom-lock, 
+#custom-suspend, #custom-logout {
+    color: #ffffff;
+    padding: 0.3rem 0.7rem;
+    background-color: transparent;
+}
+
+#custom-power:hover, #custom-reboot:hover, 
+#custom-lock:hover, #custom-suspend:hover, 
+#custom-logout:hover {
+    background-color: #333333;
+}
+
+/* TOOLTIPS */
+
+tooltip {
+    background: #1a1a1a;
+    color: #f0f0f0;
+    border: 1px solid #333333;
+}
+
+/* HOVER STATES */
+#tray:hover, #network:hover, #backlight:hover, 
+#pulseaudio:hover, #battery:hover {
+    background-color: #333333;
+}
