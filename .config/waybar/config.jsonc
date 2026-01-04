@@ -79,7 +79,8 @@
     "clock": {
         "timezone": "America/Sao_Paulo",
         "format": "{:%d.%m | %H:%M}",
-        "format-alt": "{:%A, %d - %B at %Y}"
+        "format-alt": "{:%A, %d - %B at %Y}",
+        "tooltip": false
     },
 
     "custom/notification": {
