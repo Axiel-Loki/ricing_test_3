@@ -76,7 +76,7 @@
     "clock": {
         "timezone": "America/Sao_Paulo",
         "format": "{:%d.%m | %H:%M}",
-        "format-alt": "{:%A, %d - %B at %Y}",
+        "format-alt": "{:%A, %d %B %Y}",
         "tooltip": false
     },
 
@@ -158,14 +158,15 @@
 
     "pulseaudio": {
         "format": "{icon} {volume}%",
-        "format-muted": "",
+        "format-muted": "󰝟",
         "format-icons": {
             "headphone": "",
             "headset": "󰋎",
             "default": [
-              "",
-              "",
-              ""
+              "󰖁",  
+              "󰕿",
+              "󰖀",
+              "󰕾"
             ]
 
         },
